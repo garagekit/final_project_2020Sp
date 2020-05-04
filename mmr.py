@@ -3,7 +3,7 @@ import math
 import matplotlib.pyplot as plt
 
 
-initialMMR = 4500
+initialMMR = 2000
 # the initialMMR value of each player
 changeMMR = 40
 # The changeMMR value is the change of each player's MMR value after each match,
@@ -24,7 +24,7 @@ def generate_players(number: int):
     players = [[0]*5 for _ in range(number)]
     for i in range(number):
         players[i][0] = i
-        players[i][1] = initialMMR
+        # players[i][1] = initialMMR
     return players
 
 def assign_players_match(players: list):
@@ -115,6 +115,16 @@ def match_conditions_judgement(player1: list, player2: list):
         return True
 
 def game_play(player1: list, player2: list):
+    '''
+    Two selected players would battle through this game. At first, player1 would
+    take number 0 - 5000, and player2 would take number 5001 - 10000. Secondly,
+    compensation would be given to the player with higher MMR points. Thirdly, a
+    random number within 0 - 10000 would be generated. Then if player1 contains
+    this number, player1 would be the winner.
+    :param player1: selected player1
+    :param player2: selected player2
+    :return: return 1 or 2, 1 means that player1 wins, 2 means that player2 wins
+    '''
     winPlayer1 = [0, 5000]
     winPlayer2 = [5001, 10000]
 
